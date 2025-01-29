@@ -31,7 +31,7 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 
 ARTICLE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}/"
-ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}/"
+ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html"
 DRAFT_URL = "drafts/{slug}.html"
 YEAR_ARCHIVE_SAVE_AS = "archives/{date:%Y}"
 MONTH_ARCHIVE_SAVE_AS = "archives/{date:%Y}-{date:%m}"
