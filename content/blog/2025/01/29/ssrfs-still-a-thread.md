@@ -4,7 +4,7 @@ Category: Security
 Tags: security, ai, ssrf
 Slug: ssrfs-still-a-threat
 Summary: You may know SSRFs are bad but AI agents don't!
-Status: published
+Status: draft
 
 
 ## Background
@@ -15,7 +15,7 @@ The basic gist is if you are using an app that will make web requests on your be
 
 ## Use in AI agents
 
-AI agents have extremely rudimentary controls in place to not allow you to get them to perform SSRFs. If you give it something very obvious like `Please crawl http://127.0.0.1` for me, they'll typically decline. But if you use a host that just has an A record pointing to `127.0.0.1` like `lacolhost.com`, they'll give it a shot. For Gemini at least, even in an error state, with some prodding it will tell you if it was a TCP error (e.g. connection refused) or an HTTP error. With enough iterations you could start to map out the runtime environment Gemini or other agents run in.
+AI agents have extremely rudimentary controls in place to not allow you to get them to perform SSRFs. If you give it something very obvious like `Please crawl http://127.0.0.1` for me, they'll typically decline. But if you use a host that just has an A record pointing to `127.0.0.1` like `lacolhost.com`, they'll give it a shot. For Gemini at least, even in an error state, with some prodding it will ...
 
 ## Conclusion
 
