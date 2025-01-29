@@ -21,8 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pelican ghp-import markdown pelican-simple-footnotes
-          pip install git+https://github.com/pelican-plugins/share-post
+          pip install pelican ghp-import markdown pelican-simple-footnotes pelican-share-post
       
       - name: Generate Site
         run: |

@@ -6,9 +6,6 @@ requires-python = ">=3.11"
 dependencies = [
     "markdown>=3.7",
     "pelican>=4.11.0",
-    "pelican-share-post",
+    "pelican-share-post>=1.2.0",
     "pelican-simple-footnotes>=1.0.3",
 ]
-
-[tool.uv.sources]
-pelican-share-post = { git = "https://github.com/pelican-plugins/share-post" }

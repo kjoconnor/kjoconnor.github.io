@@ -51,7 +51,7 @@ dependencies = [
 requires-dist = [
     { name = "markdown", specifier = ">=3.7" },
     { name = "pelican", specifier = ">=4.11.0" },
-    { name = "pelican-share-post", git = "https://github.com/pelican-plugins/share-post" },
+    { name = "pelican-share-post", specifier = ">=1.2.0" },
     { name = "pelican-simple-footnotes", specifier = ">=1.0.3" },
 ]
 
@@ -221,11 +221,15 @@ wheels = [
 
 [[package]]
 name = "pelican-share-post"
-version = "1.1.0"
-source = { git = "https://github.com/pelican-plugins/share-post#491663a71c5ed19237d8b21b68dabc6fcb0b3f79" }
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "pelican" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e5/47/9c97238aee8a8b84552a2c0fe4f7865c571c5a56256ce04b7ea988c8a4ff/pelican_share_post-1.2.0.tar.gz", hash = "sha256:cd78aaf8fbc02b16a6d7ab1fd51eaab01d1c64cea8e81f399c2bfed5f57f6c36", size = 5285 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/78/f7/a10534c32ceccdc8ff6e2d87c1335c8e84af512d1d18f3b33d637b70e27a/pelican_share_post-1.2.0-py3-none-any.whl", hash = "sha256:198becc2950a62871affcb62274c7be4e2ed8e8837ef0067c3b6f2b92fc830ca", size = 6193 },
 ]
 
 [[package]]
