@@ -15,6 +15,7 @@
             <style>
         .simple-footnotes {
             font-size: 0.9em;
+            padding-top: 50px;
         }
     </style>
     </head>
@@ -61,7 +62,6 @@
 <p><img alt="Cassandra Spreadsheet" src="/images/cassandra-spreadsheet.jpeg"></p>
 <h4 id="everything-looks-good">Everything looks good???<a class="headerlink" href="#everything-looks-good" title="Permanent link">#</a></h4>
 <p>Everything looked great...except after a few weeks of running the nodes would slow down and pause, and only a system reboot would clear the problem. I don't remember exactly what I used here to debug it, it might have been <code>strace</code> or something else similar that would eventually uncover the issue which was the kernel was getting busier and busier managing something called <a href="https://docs.kernel.org/admin-guide/mm/transhuge.html">Transparent Huge Pages</a>. Disabling this made the problem go away immediately. I'm not totally sure, but I believe the issue is caused because Casandra and the kernel (with THP enabled) don't play nice when it came to memory management.</p><ol class="simple-footnotes"><li id="sf-fun-times-at-reddit-1">This doesn't even exist anymore! It's been completely replaced by Amazon's VPC <a href="#sf-fun-times-at-reddit-1-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-2">Hard to remember now, but Reddit was open source at the time. <a href="https://github.com/reddit-archive/reddit/tree/b3bf278cb3e2c9dc68031fbd9c70cf005b69766d">Here</a> is what the code looked like at around the time I started. <a href="#sf-fun-times-at-reddit-2-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-3">Like - really heavy use. We were early testers of Facebook's <a href="https://github.com/facebook/mcrouter">mcrouter</a> as there weren't many other sites using memcached as much as we were! <a href="#sf-fun-times-at-reddit-3-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-4">It wasn't yet fashionable to call this observability. We were using statsd and graphite, a very old but very reliable stack. In may ways I prefer it to day's metric overkill. <a href="#sf-fun-times-at-reddit-4-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-5">A holdover architecture pattern from when the site was originally running in a datacenter and ported over to AWS without much rearchitecting in this part of the codebase <a href="#sf-fun-times-at-reddit-5-back" class="simple-footnote-back">↩︎</a></li></ol>
-            <div style="padding-bottom: 50px"></div>
         </article>
 
         <footer>
