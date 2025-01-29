@@ -3,7 +3,7 @@ SITENAME = "Wow Great Stuff"
 SITEURL = "https://writing.ohsh.it"
 
 PATH = "content"
-STATIC_PATHS = ["images", "CNAME"]
+STATIC_PATHS = ["images", "CNAME", "extra"]
 ARTICLE_PATHS = ["blog"]
 PAGE_PATHS = ["pages"]
 TIMEZONE = "America/New_York"
@@ -35,3 +35,8 @@ ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html"
 DRAFT_URL = "drafts/{slug}.html"
 YEAR_ARCHIVE_SAVE_AS = "archives/{date:%Y}"
 MONTH_ARCHIVE_SAVE_AS = "archives/{date:%Y}-{date:%m}"
+
+
+EXTRA_PATH_METADATA = {
+    "extra/favicon.ico": {"path": "favicon.ico"},
+}
