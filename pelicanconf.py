@@ -1,0 +1,29 @@
+AUTHOR = "Kevin O'Connor"
+SITENAME = "Wow Great Stuff"
+SITEURL = "https://writing.ohsh.it"
+
+PATH = "content"
+STATIC_PATHS = ["images"]
+ARTICLE_PATHS = ["blog"]
+PAGE_PATHS = ["pages"]
+TIMEZONE = "America/New_York"
+
+DEFAULT_LANG = "en"
+
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+# Blogroll
+LINKS = ()
+
+# Social widget
+SOCIAL = (("Bluesky", "https://bsky.app/profile/ohsh.it"),)
+
+DEFAULT_PAGINATION = False
+
+# Uncomment following line if you want document-relative URLs when developing
+# RELATIVE_URLS = True
