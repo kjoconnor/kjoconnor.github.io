@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>    Fun stories from my time at Reddit
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://writing.ohsh.it/theme/css/cid.css">
+        <link href="https://writing.ohsh.it/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Wow Great Stuff Atom Feed" />
+            <style>
+        .simple-footnotes {
+            font-size: 0.9em;
+        }
+    </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="container">
+
+<header class="blog-header">
+    <h1><a href="https://writing.ohsh.it">Wow Great Stuff</a></h1>
+    <p></p>
+    <nav>
+        <a href="https://writing.ohsh.it/">Index</a>
+        <a href="https://writing.ohsh.it/archives">Archives</a>
+        <!-- <a href="https://writing.ohsh.it/categories">Categories</a> -->
+        <a href="https://writing.ohsh.it/tags">Tags</a>
+        <a href="https://writing.ohsh.it/pages/about">About</a>
+    </nav>
+</header>
+
+    <div class="post">
+
+        <header>
+            <h1>Fun stories from my time at Reddit</h1>
+            <p class="date">Written on <time datetime="2025-01-30T12:00:00-05:00">Jan 30, 2025</time></p>
+        </header>
+
+        <article>
+            <p>I worked at Reddit from 2014 until 2020. I started out as a "sysadmin" I think, which was a role already quite antiquated by 2014. In reality I'd say it was a devops/infra/SRE style role. Over my time there I moved into management, becoming a manager early on and then moving into a Director role where I managed a team of around 50.</p>
+<p>It was the most interesting job I've had and I've met some of the smartest people I've ever worked with. I made a lot of friends that I still talk to on a daily basis.</p>
+<p>Here are a few fun stores or facts from my time there.</p>
+<h2 id="site-stability-and-noisy-neighbors">Site stability and noisy neighbors<a class="headerlink" href="#site-stability-and-noisy-neighbors" title="Permanent link">#</a></h2>
+<p>To set the stage, by 2015 Reddit was pretty busy, easily in the top 20 sites in the US and even cracking the top 10 in some measures. The Infra/SRE team responsible for keeping it online was around 4 or 5 people in total. Pretty small compared to many of our peers at the time who would have easily had 3-5x that size team.</p>
+<p>The site ran in AWS's EC2 Classic <sup id="sf-fun-times-at-reddit-1-back"><a href="#sf-fun-times-at-reddit-1" class="simple-footnote" title="This doesn't even exist anymore! It's been completely replaced by Amazon's VPC">1</a></sup> (this will be important later!) on a Python monolith <sup id="sf-fun-times-at-reddit-2-back"><a href="#sf-fun-times-at-reddit-2" class="simple-footnote" title="Hard to remember now, but Reddit was open source at the time. Here is what the code looked like at around the time I started.">2</a></sup> and made heavy use of memcached <sup id="sf-fun-times-at-reddit-3-back"><a href="#sf-fun-times-at-reddit-3" class="simple-footnote" title="Like - really heavy use. We were early testers of Facebook's mcrouter as there weren't many other sites using memcached as much as we were!">3</a></sup>, Postgres and Cassandra. We used caching <strong>heavily</strong> to make the site stay performant.</p>
+<p>We had ongoing issues where the site would just mysteriously go down for 5-15 minutes at a time, and we knew one way to get it back working was to migrate one of the memcached nodes to a brand new node. We started adding a lot more metrics <sup id="sf-fun-times-at-reddit-4-back"><a href="#sf-fun-times-at-reddit-4" class="simple-footnote" title="It wasn't yet fashionable to call this observability. We were using statsd and graphite, a very old but very reliable stack. In may ways I prefer it to day's metric overkill.">4</a></sup> to try and figure out what was happening, and we eventually came to see that TCP retransmissions would spike on affected node. After many more frustrating outages, we came to understand the it was a <a href="https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/noisy-neighbor.html">noisy neighbor problem</a> - a new virtual machine would get spun up on the same hardware node as us and cause that hardware node's network capacity to become saturated.</p>
+<p>We relied on very fast response times from memcached <sup id="sf-fun-times-at-reddit-5-back"><a href="#sf-fun-times-at-reddit-5" class="simple-footnote" title="A holdover architecture pattern from when the site was originally running in a datacenter and ported over to AWS without much rearchitecting in this part of the codebase">5</a></sup> in our synchronous monolith, so any pausing would cause the page rendering to hang and cause cascading failures.</p>
+<p>First we profiled traffic, first by just using <code>tcpdump</code>ing traffic on the memcached servers and parsing out the cache traffic and classifying it through some clever regexes to determine what type of reads were hitting the memcached clusters the most. From there, we used some <a href="https://github.com/reddit-archive/reddit/commit/12db5002290c42822f6e497a8f72d3c991400232">heuristics to cleverly avoid extra lookups</a> to buy us some time (the site was still growing in traffic every day!) and the long term plan was to move to Amazon's new VPC service that offered hardware based networking virtualization and much higher packet per second limits. We did that over the course of the next year or so, prioritizing moving the caching servers and it went pretty well. Except for one major outage, for which I got to write a <a href="https://www.reddit.com/r/announcements/comments/4y0m56/why_reddit_was_down_on_aug_11/">big post about</a> and the community was pretty nice about it.</p>
+<h2 id="cassandra-ring-management">Cassandra ring management<a class="headerlink" href="#cassandra-ring-management" title="Permanent link">#</a></h2>
+<p>A pretty horrifying detail about that time at Reddit was there was only ever basically one person at a time who understood how the <a href="https://cassandra.apache.org/_/index.html">Cassandra</a> cluster worked. There was someone before me, and when that person left and I joined I became "the Cassandra whisperer" over time. Cassandra was where all the votes were stored, app access tokens, all the sorts and comment trees, etc. Some of the data could be recomputed out of Postgres if we'd lost it, but the site would be basically unusable for hours or days while we were rebuilding.</p>
+<p>Our Cassandra cluster was going through some growing pains. It was unbalanced, was not distributed across availability zones properly, was significantly out of date, and needed to be moved from EC2 Classic to VPC as we did with the rest of our fleet. We also had previously made use of a version of Cassandra called Datastax Enterprise which came with professional support, but we were ending our contract and so needed to go back to the open source/non-enterprise version.</p>
+<p>We didn't use vtokens and weren't going to switch as part of this migration, so I manually wrote out the token ranges and availability zone mappings and migrated node by node over the course of months. Here's a picture from a spreadsheet from this time trying to describe the ring and token ranges.</p>
+<p><img alt="Cassandra Spreadsheet" src="/images/cassandra-spreadsheet.jpeg"></p>
+<h4 id="everything-looks-good">Everything looks good???<a class="headerlink" href="#everything-looks-good" title="Permanent link">#</a></h4>
+<p>Everything looked great...except after a few weeks of running the nodes would slow down and pause, and only a system reboot would clear the problem. I don't remember exactly what I used here to debug it, it might have been <code>strace</code> or something else similar that would eventually uncover the issue which was the kernel was getting busier and busier managing something called <a href="https://docs.kernel.org/admin-guide/mm/transhuge.html">Transparent Huge Pages</a>. Disabling this made the problem go away immediately. I'm not totally sure, but I believe the issue is caused because Casandra and the kernel (with THP enabled) don't play nice when it came to memory management.</p><ol class="simple-footnotes"><li id="sf-fun-times-at-reddit-1">This doesn't even exist anymore! It's been completely replaced by Amazon's VPC <a href="#sf-fun-times-at-reddit-1-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-2">Hard to remember now, but Reddit was open source at the time. <a href="https://github.com/reddit-archive/reddit/tree/b3bf278cb3e2c9dc68031fbd9c70cf005b69766d">Here</a> is what the code looked like at around the time I started. <a href="#sf-fun-times-at-reddit-2-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-3">Like - really heavy use. We were early testers of Facebook's <a href="https://github.com/facebook/mcrouter">mcrouter</a> as there weren't many other sites using memcached as much as we were! <a href="#sf-fun-times-at-reddit-3-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-4">It wasn't yet fashionable to call this observability. We were using statsd and graphite, a very old but very reliable stack. In may ways I prefer it to day's metric overkill. <a href="#sf-fun-times-at-reddit-4-back" class="simple-footnote-back">↩︎</a></li><li id="sf-fun-times-at-reddit-5">A holdover architecture pattern from when the site was originally running in a datacenter and ported over to AWS without much rearchitecting in this part of the codebase <a href="#sf-fun-times-at-reddit-5-back" class="simple-footnote-back">↩︎</a></li></ol>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://writing.ohsh.it/category/stories.html">Stories</a>.</p>
+        </footer>
+
+    </div>
+
+
+<footer class="blog-footer">
+
+    <ul class="nav">
+    </ul>
+
+    <p class="disclaimer">
+        <a href="https://bsky.app/profile/ohsh.it"><img height="24" width="24" src="/bluesky.svg"></a> <a href="/feeds/all.atom.xml"><img height="24" width="24" src="/rss.png"></a>
+    </p>
+</footer>
+            </div>
+    </body>
+</html>
