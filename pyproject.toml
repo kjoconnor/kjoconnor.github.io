@@ -6,4 +6,5 @@ requires-python = ">=3.11"
 dependencies = [
     "markdown>=3.7",
     "pelican>=4.11.0",
+    "pelican-simple-footnotes>=1.0.3",
 ]
