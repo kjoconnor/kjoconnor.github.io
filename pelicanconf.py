@@ -43,7 +43,7 @@ EXTRA_PATH_METADATA = {
     "extra/rss.png": {"path": "rss.png"},
 }
 
-SITEFOOTER = '<a href="https://bsky.app/profile/ohsh.it"><img height="24" width="24" src="/bluesky.svg"></a> <a href="/feeds/all.atom.xml"><img height="24" width="24" src="/rss.png"></a>'
+SITEFOOTER = '<div style="width: 12.5%; position: relative; padding: 8px; margin: 0 auto;"><a href="https://bsky.app/profile/ohsh.it" style="float: left;"><img height="24" width="24" src="/bluesky.svg"></a><a href="/feeds/all.atom.xml" style="float: right;"><img height="24" width="24" src="/rss.png"></a></div>'
 
 MARKDOWN = {
     "extension_configs": {
