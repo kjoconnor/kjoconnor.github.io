@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Wow Great Stuff</title>
+        <title>Wow Great Stuff - January 2025 archives</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
@@ -29,23 +29,14 @@
         <a href="https://writing.ohsh.it/pages/about">About</a>
     </nav>
 </header>
+    <h2>Archives for January 2025</h2>
 
-        <h1>Tag: ssrf<small class="header-link"><a href="https://writing.ohsh.it/tags">All Tags</a></small></h1>
-
-        <div class="post-list">
-
-
-            <article class="post-overview">
-                <h2><a href="https://writing.ohsh.it/2025/01/29/ssrfs-still-a-threat/">SSRFs - still a threat</a></h2>
-                <time datetime="2025-01-29T02:20:00-05:00">Jan 29, 2025</time>
-                <div class="excerpt"><p>You may know SSRFs are bad but AI agents don't!</p></div>
-            </article>
-
-
-        </div>
-
-
-
+    <dl>
+            <dt>Wed 29 January 2025</dt>
+            <dd><a href="https://writing.ohsh.it/2025/01/29/ssrfs-still-a-threat/">SSRFs - still a threat</a></dd>
+            <dt>Wed 29 January 2025</dt>
+            <dd><a href="https://writing.ohsh.it/2025/01/29/my-first-post/">My First Post</a></dd>
+    </dl>
 
 <footer class="blog-footer">
 
