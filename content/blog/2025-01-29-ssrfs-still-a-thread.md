@@ -4,7 +4,7 @@ Category: Security
 Tags: security, ai, ssrf
 Slug: ssrfs-still-a-threat
 Summary: You may know SSRFs are bad but AI agents don't!
-Status: draft
+Status: published
 
 
 ## Background
