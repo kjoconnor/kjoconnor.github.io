@@ -3,7 +3,7 @@ SITENAME = "Wow Great Stuff"
 SITEURL = "https://writing.ohsh.it"
 
 PATH = "content"
-STATIC_PATHS = ["images"]
+STATIC_PATHS = ["images", "CNAME"]
 ARTICLE_PATHS = ["blog"]
 PAGE_PATHS = ["pages"]
 TIMEZONE = "America/New_York"
