@@ -40,6 +40,7 @@ MONTH_ARCHIVE_SAVE_AS = "archives/{date:%Y}-{date:%m}"
 EXTRA_PATH_METADATA = {
     "extra/favicon.ico": {"path": "favicon.ico"},
     "extra/bluesky.svg": {"path": "bluesky.svg"},
+    "extra/rss.png": {"path": "rss.png"},
 }
 
-SITEFOOTER = '<a href="https://bsky.app/profile/ohsh.it"><img height="24" width="24" src="/bluesky.svg"></a>'
+SITEFOOTER = '<a href="https://bsky.app/profile/ohsh.it"><img height="24" width="24" src="/bluesky.svg"></a> <a href="feeds/all.atom.xml"><img height="24" width="24" src="/rss.png"></a>'
