@@ -39,4 +39,7 @@ MONTH_ARCHIVE_SAVE_AS = "archives/{date:%Y}-{date:%m}"
 
 EXTRA_PATH_METADATA = {
     "extra/favicon.ico": {"path": "favicon.ico"},
+    "extra/bluesky.svg": {"path": "bluesky.svg"},
 }
+
+SITEFOOTER = '<a href="https://bsky.app/profile/ohsh.it"><img height="24" width="24" src="/bluesky.svg"></a>'

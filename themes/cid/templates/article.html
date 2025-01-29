@@ -18,8 +18,16 @@
 
         <footer>
             <p>This entry is posted in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.</p>
+            {% if article.share_post %}
+            <p id="post-share-links" style="font-size: 12px;">
+                Share:
+                • <a href="{{article.share_post['reddit']}}" title="Share on Reddit">Reddit</a>
+                • <a href="{{article.share_post['bluesky']}}" title="Share on Bluesky">Bluesky</a>
+                • <a href="{{article.share_post['email']}}" title="Share via email">Email</a>
+                • <a href="https://www.pigeongram.com/" title="Share via Carrier Pigeon">Carrier Pigeon</a>
+            </p>
+            {% endif %}
         </footer>
-
         {% include "disqus.html" %}
 
     </div>
