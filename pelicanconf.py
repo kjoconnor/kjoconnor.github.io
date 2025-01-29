@@ -8,6 +8,8 @@ ARTICLE_PATHS = ["blog"]
 PAGE_PATHS = ["pages"]
 TIMEZONE = "America/New_York"
 
+THEME = "themes/cid"
+
 DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
