@@ -219,7 +219,7 @@ code, kbd, pre, samp {
 body {
   font-family: "Merriweather", "Georgia", serif;
   font-weight: 300;
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 body a {
   font-weight: 400;
@@ -232,13 +232,13 @@ body h1 a, body h2 a, body h3 a, body h4 a, body h5 a, body h6 a {
 }
 body iframe {
   max-width: 100%;
-  margin: 1.8em auto;
+  margin: 1.9em auto;
   display: block;
 }
 
 .disclaimer {
   text-align: center;
-  font-size: 0.72em;
+  font-size: 0.76em;
 }
 
 .nav {
@@ -247,9 +247,9 @@ body iframe {
 }
 .nav li {
   display: inline-block;
-  margin-right: 0.5em;
+  margin-right: 0.53em;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .nav li {
     display: block;
     margin-right: 0;
@@ -257,99 +257,99 @@ body iframe {
 }
 
 .header-link {
-  font-size: 63%;
+  font-size: 66.5%;
   float: right;
 }
 
 .landing-container {
-  width: 58.5%;
-  margin: 1.8em auto 0;
+  width: 61.75%;
+  margin: 1.9em auto 0;
   font-family: "Merriweather", "Georgia", serif;
 }
 .landing-container li {
   font-family: "Gentium Book Basic", "Georgia", serif;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .landing-container {
     width: 100%;
-    margin: 0.9em 0;
+    margin: 0.95em 0;
   }
 }
 .landing-container header {
-  font-size: 1.08em;
+  font-size: 1.14em;
 }
 .landing-container header h1 {
-  font-size: 3.6em;
-  margin: 0.36em 0;
+  font-size: 3.8em;
+  margin: 0.38em 0;
 }
 .landing-container ul {
-  margin-top: 4.5em;
-  margin-bottom: 2.7em;
+  margin-top: 4.75em;
+  margin-bottom: 2.85em;
   text-align: center;
 }
 .landing-container ul li {
-  font-size: 1.8em;
+  font-size: 1.9em;
 }
 
 .container {
-  max-width: 50.4em;
-  margin: 0.9em auto;
+  max-width: 53.2em;
+  margin: 0.95em auto;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .container {
-    margin: 0.72em;
+    margin: 0.76em;
   }
 }
 .container .paginator {
   text-align: center;
-  margin: 2.88em 0;
+  margin: 3.04em 0;
 }
 .container .blog-header {
-  margin-bottom: 2.7em;
+  margin-bottom: 2.85em;
   position: relative;
 }
 .container .blog-header h1 {
   margin-bottom: 0;
 }
 .container .blog-header p {
-  margin-top: 0.18em;
+  margin-top: 0.19em;
 }
 .container .blog-header nav {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 0 1.8px;
+  margin: 0 1.9px;
   font-family: "Gentium Book Basic", "Georgia", serif;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .container .blog-header nav {
     position: relative;
     text-align: center;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .container .blog-header {
     text-align: center;
   }
 }
 .container .nav {
-  font-size: 1.08em;
+  font-size: 1.14em;
 }
 .container .blog-footer {
-  margin-top: 1.8em;
+  margin-top: 1.9em;
   text-align: center;
 }
 .container .post-list .post-overview {
-  margin: 0.9em;
+  margin: 0.95em;
   position: relative;
-  padding-left: 6.3em;
+  padding-left: 6.65em;
 }
 .container .post-list .post-overview time {
   position: absolute;
   left: 0;
-  top: 0.18em;
+  top: 0.19em;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .container .post-list .post-overview {
     margin: 0;
     top: 0;
@@ -360,27 +360,27 @@ body iframe {
   }
 }
 .container .post {
-  font-size: 1.062em;
+  font-size: 1.121em;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 608px) {
   .container .post {
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
 }
 .container .post h1 {
-  font-size: 1.35em;
+  font-size: 1.425em;
 }
 .container .post h2 {
-  font-size: 1.296em;
+  font-size: 1.368em;
 }
 .container .post h3 {
-  font-size: 1.17em;
+  font-size: 1.235em;
 }
 .container .post h4 {
-  font-size: 1.08em;
+  font-size: 1.14em;
 }
 .container .post h5, .container .post h6 {
-  font-size: 1.062em;
+  font-size: 1.121em;
 }
 .container .post a {
   font-weight: 400;
@@ -389,17 +389,17 @@ body iframe {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 1.35em auto;
+  margin: 1.425em auto;
 }
 .container .post code {
-  padding: 1.8px 3.6px;
-  font-size: 81%;
+  padding: 1.9px 3.8px;
+  font-size: 85.5%;
   color: #c7254e;
   background-color: #f9f2f4;
-  border-radius: 3.6px;
+  border-radius: 3.8px;
 }
 .container .post .highlight {
-  font-size: 0.81em;
+  font-size: 0.855em;
   overflow-x: auto;
 }
 .container .post blockquote {
@@ -407,19 +407,19 @@ body iframe {
   font-weight: 300;
 }
 .container .post header {
-  margin: 1.98em 0;
+  margin: 2.09em 0;
 }
 .container .post header h1 {
-  font-size: 2.205em;
+  font-size: 2.3275em;
 }
 .container .post header p.date {
-  margin-top: -1.17em;
+  margin-top: -1.235em;
 }
 .container .post article {
-  line-height: 1.56em;
+  line-height: 1.64666em;
 }
 .container .post footer {
-  margin: 1.8em 0 2.7em;
+  margin: 1.9em 0 2.85em;
   text-align: right;
 }
 
