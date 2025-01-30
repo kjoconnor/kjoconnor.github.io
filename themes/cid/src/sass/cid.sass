@@ -1,6 +1,6 @@
 @import "manni"
 
-$break-small: 640px
+$break-small: 576px
 
 $text-color: #030303
 $bg-color: #fefefe
@@ -15,13 +15,13 @@ $monospace-font: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace
     background-color: $bg-color
     color: $text-color
 
-
 code, kbd, pre, samp
     font-family: $monospace-font
 
 body
     font-family: $body-font
     font-weight: 300
+    font-size: 0.9em
 
     a
         font-weight: 400
@@ -33,30 +33,30 @@ body
 
     iframe
         max-width: 100%
-        margin: 2em auto
+        margin: 1.8em auto
         display: block
 
 .disclaimer
     text-align: center
-    font-size: 0.8em
+    font-size: 0.72em
 
 .nav
     list-style: none
     padding-left: 0
     li
         display: inline-block
-        margin-right: 0.56em
+        margin-right: 0.5em
         @media screen and (max-width: $break-small)
             display: block
             margin-right: 0
 
 .header-link
-    font-size: 70%
+    font-size: 63%
     float: right
 
 .landing-container
-    width: 65%
-    margin: 2em auto 0
+    width: 58.5%
+    margin: 1.8em auto 0
     font-family: $body-font
 
     li
@@ -64,44 +64,44 @@ body
 
     @media screen and (max-width: $break-small)
         width: 100%
-        margin: 1em 0
+        margin: 0.9em 0
 
     header
-        font-size: 1.2em
+        font-size: 1.08em
         h1
-            font-size: 4em
-            margin: 0.4em 0
+            font-size: 3.6em
+            margin: 0.36em 0
 
     ul
-        margin-top: 5em
-        margin-bottom: 3em
+        margin-top: 4.5em
+        margin-bottom: 2.7em
         text-align: center
 
         li
-            font-size: 2em
+            font-size: 1.8em
 
 .container
-    max-width: 56em
-    margin: 1em auto
+    max-width: 50.4em
+    margin: 0.9em auto
     @media screen and (max-width: $break-small)
-        margin: 0.8em
+        margin: 0.72em
 
     .paginator
         text-align: center
-        margin: 3.2em 0
+        margin: 2.88em 0
 
     .blog-header
-        margin-bottom: 3em
+        margin-bottom: 2.7em
         position: relative
         h1
             margin-bottom: 0
         p
-            margin-top: 0.2em
+            margin-top: 0.18em
         nav
             position: absolute
             top: 0
             right: 0
-            margin: 0 2px
+            margin: 0 1.8px
             font-family: $header-font
 
             @media screen and (max-width: $break-small)
@@ -112,49 +112,45 @@ body
             text-align: center
 
     .nav
-        font-size: 1.2em
+        font-size: 1.08em
 
     .blog-footer
-        margin-top: 2em
+        margin-top: 1.8em
         text-align: center
 
-    // The list of posts
     .post-list
         .post-overview
-            margin: 1em
+            margin: 0.9em
             position: relative
-            padding-left: 7em
+            padding-left: 6.3em
             time
                 position: absolute
-                left: 0em
-                top: 0.2em
+                left: 0
+                top: 0.18em
 
         @media screen and (max-width: $break-small)
             .post-overview
                 margin: 0
-                top: 0em
+                top: 0
                 padding-left: 0
                 time
                     position: relative
 
-
-    // The post body
     .post
-
-        font-size: 1.18em
+        font-size: 1.062em
         @media screen and (max-width: $break-small)
-            font-size: 1em
+            font-size: 0.9em
 
         h1
-            font-size: 1.5em
+            font-size: 1.35em
         h2
-            font-size: 1.44em
+            font-size: 1.296em
         h3
-            font-size: 1.3em
+            font-size: 1.17em
         h4
-            font-size: 1.2em
+            font-size: 1.08em
         h5, h6
-            font-size: 1.18em
+            font-size: 1.062em
         a
             font-weight: 400
 
@@ -162,17 +158,17 @@ body
             max-width: 100%
             height: auto
             display: block
-            margin: 1.5em auto
+            margin: 1.35em auto
 
         code
-            padding: 2px 4px
-            font-size: 90%
+            padding: 1.8px 3.6px
+            font-size: 81%
             color: $code-color
             background-color: $code-bg-color
-            border-radius: 4px
+            border-radius: 3.6px
 
         .highlight
-            font-size: 0.9em
+            font-size: 0.81em
             overflow-x: auto
 
         blockquote
@@ -180,15 +176,15 @@ body
             font-weight: 300
 
         header
-            margin: 2.2em 0
+            margin: 1.98em 0
             h1
-                font-size: 2.45em
+                font-size: 2.205em
             p.date
-                margin-top: -1.3em
+                margin-top: -1.17em
 
         article
-            line-height: 1.73333em
+            line-height: 1.56em
 
         footer
-            margin: 2em 0 3em
+            margin: 1.8em 0 2.7em
             text-align: right
